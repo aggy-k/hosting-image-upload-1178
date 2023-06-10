@@ -9,4 +9,23 @@
     <%= article.body %>
   </p>
 
+  <div>
+    
+    <h1>THIS IS PHOTO</h1>
+    <% if article.photo.attached? %>
+      <%= image_tag article.photo, style: "width: 600px; object-fit: cover;" %>
+      <%#= cl_image_tag article.photo.key %>
+    <% end %>
+    
+  </div>
+
+  <div>
+    <h1>THESE ARE PHOTOS</h1>
+    <% article.photos.each do |photo| %>
+      <%#= image_tag photo, style: "width: 600px; object-fit: cover;" %>
+      <%= cl_image_tag photo.key, width: 600 %>
+    <% end %>
+    
+  </div>
+
 </div>
